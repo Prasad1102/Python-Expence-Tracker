@@ -80,7 +80,10 @@ const AddExpense = () => {
               variant="outlined"
               type="date"
               value={date}
-              onChange={(e) => setDate(e.target.value)}
+              onChange={(e) => {
+                setDate(e.target.value);
+                console.log("Selected Date:", e.target.value); // Debugging
+              }}
               required
               InputLabelProps={{
                 shrink: true,

@@ -65,7 +65,6 @@ def login_user(request):
 @permission_classes([IsAuthenticated])
 def getUserInfo(request):
     user = request.user
-    print(user)
     return Response({
         "id": user.id,
         "username": user.username,
@@ -132,7 +131,6 @@ def update_expence(request):
     amount = request.data.get('amount')
     description = request.data.get('description')
     date = request.data.get('date')
-    print("expense_id", expense_id)
 
     try:
         expense = Expenses.objects.get(id=expense_id, user=request.user)

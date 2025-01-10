@@ -33,8 +33,7 @@ function NavBar() {
     const fetchUser = async () => {
       try {
         const userData = await getUser();
-        console.log("Fetched user data:", userData); // Log the fetched data
-        setUser(userData); // Update the state
+        setUser(userData);
       } catch (error) {
         console.error("Error fetching user data:", error);
       }
@@ -188,28 +187,6 @@ function NavBar() {
                 </Box> // Display loading text if user data is not yet fetched
               )}
             </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
           </Box>
         </Toolbar>
       </Container>

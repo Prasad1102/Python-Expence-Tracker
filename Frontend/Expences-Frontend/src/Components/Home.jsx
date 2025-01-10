@@ -22,7 +22,6 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const response = await getAllExpence();
-        console.log("Expences response:", response.expenses);
         setExpences(response.expenses);
         calculateExpence(response.expenses);
       } catch (err) {
@@ -53,7 +52,6 @@ const Home = () => {
   };
 
   const handleUpdate = (id) => {
-    console.log(`Update expense with ID: ${id}`);
     navigate(`/update-expense/${id}`);
   };
 
@@ -91,7 +89,7 @@ const Home = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {expences.map((expense) => (
+              {expences.map((expense, index) => (
                 <TableRow
                   key={expense.id}
                   sx={{
@@ -100,7 +98,7 @@ const Home = () => {
                   }}
                 >
                   <TableCell component="th" scope="row">
-                    {expense.id}
+                    {index + 1}
                   </TableCell>
                   <TableCell align="center">{expense.title}</TableCell>
                   <TableCell align="center">{expense.amount}</TableCell>
