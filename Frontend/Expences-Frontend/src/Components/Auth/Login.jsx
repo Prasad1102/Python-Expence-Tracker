@@ -6,11 +6,11 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const navigate = useNavigate(); // move useNavigate here
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setError(""); // Clear any existing error before the new login attempt
+    setError(""); 
 
     try {
       const response = await loginUser(username, password);
